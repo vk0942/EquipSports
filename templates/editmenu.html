@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        {% if detail !="No records found"%}
+        <h4 align="center" class="msg">
+            <strong>{{msg}}</strong>
+        </h4>
+        <br>
+        {% if detail %}
+        <div class="table-responsive">
+            <table class="table">
+            <caption> List of Items </caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for u in detail %}
+                    <tr>
+                        <td> {{u['item']}} </td>
+                        <td> {{u['price']}} </td>
+                        <td>
+                            <button class="action">
+                                <a href="{{url_for('deleteitem',id=u['itemid'])}}">
+                                    Remove item
+                                </a>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {%endif%}
+        <div>
+            {%else%}
+            <h4 align="center" class="msg">
+                <strong>{{detail}}</strong>
+            </h4>
+            {%endif%}
+        </div>
+    </div>
+
+    <div align="center">
+        <button class="action"><a href="{{url_for('additem')}}">Add item</a></button>
+    </div>
+
+</body>
+
+</html>

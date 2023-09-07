@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <style>
+
+  </style>
+
+  <meta charset="UTF-8">
+  <title> Manager Registration </title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+
+<body>
+
+  <marquee scrollamount="10">Give your rating </marquee>
+
+  </br></br></br></br>
+  <div class="managerregister" align="center">
+
+    <h2>
+      <form action="{{ url_for('feedback',id=item['orderid']) }}" onsubmit="return check()" method="post">
+        <div class="msg">{{ msg }}</div>
+        <h2>Rating for {{item['item']}} of {{item['resname']}}</h2>
+        <span>0</span><input class="rating_input" id="rating" name="rating" type="range" min="0"
+          max="5" /><span>5&#9733;</span></br>
+        <button type="submit" value="">Submit rating</button></br>
+        <button type="submit" value="">Skip rating</button></br>
+      </form>
+    </h2>
+
+  </div>
+
+</body>
+
+</html>

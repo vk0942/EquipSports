@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> User Registration </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<style>
+    body {
+        background-image: url('https://console.kr-asia.com/wp-content/uploads/2020/05/Food-Delivery-Shutterstock-M-Size-1-scaled.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .userregister {
+        width: 50%;
+        margin-top: 70px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .msg {
+        color: green;
+    }
+</style>
+
+<body>
+
+    <h1 class='pagehead'>User Registration</h1>
+
+    <div class="userregister" align="center">
+        <h3>
+        <form action="{{ url_for('userregister') }}" onsubmit="return check()" method="post">
+
+            <!-- msg to display on form action -->
+            <div class="msg"> {{ msg }} </div>
+            <br><br>
+            <input id="email" name="email" type="email" placeholder="Enter Email Address" class="textbox"
+                size="20" /></br>
+            <input id="username" name="username" type="text" placeholder="Enter Username" class="textbox"
+                size="20" /></br>
+            <input id="name" name="name" type="text" placeholder="Enter Name" class="textbox" size="20" /></br>
+            <input id="password" name="password" type="password" placeholder="Enter Password" class="textbox"
+                size="20" /></br>
+            <input id="mobno" name="mobno" type="number" placeholder="Enter Mobile Number" class="textbox"
+                size="20" /></br></br>
+
+            <button type="submit" value="Sign Up" class="btn btn-success">Register</button></br></br>
+
+        </form>
+        </h3>
+        
+        <p class="bottom"> 
+            Already have an account? 
+            <a class="bottom" href="{{url_for('userlogin')}}">
+                Sign In Here
+            </a>
+        </p>
+
+    </div>
+
+    <script>
+        function check() {
+            let a = document.getElementById("username").value;
+            let b = document.getElementById("password").value;
+            let d = document.getElementById("name").value;
+            let m = document.getElementById("mobno").value;
+            if (a == "") {
+                alert("Username cannot be blank!");
+                return false;
+            }
+            else if (b.length < 8) {
+                alert("Password should have atleast 8 characters!");
+                return false;
+            }
+            else if (d == "") {
+                alert("Name cannot be blank!");
+                return false;
+            }
+            else if(m.length != 10){
+                alert("Phone number must be of 10 characters!");
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

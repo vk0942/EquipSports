@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" /> -->
+    <title> Home | InstaFood </title>
+</head>
+
+<style>
+    .menu1{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: rgb(53, 15, 87);
+        color: white;
+    }
+    .menu1 a {
+        color: white;
+        border-radius: 8px;
+        padding: 8px;
+        text-decoration: none;
+    }
+
+    .menu1 a:hover {
+        background-color: white;
+        color: rgb(53, 15, 87);
+    }
+
+    .center{
+        margin-top: 10%;
+    }
+
+    .imp h3{
+        color: crimson;
+    }
+
+    .title{
+        margin-bottom: 10%;
+    }
+
+</style>
+
+<body>
+    <nav>
+        <div class="menu1">
+			<!-- <div class="image"><img src="{{url_for('static', filename='logo1.png')}}" alt="Website Logo" /></div> -->
+            <div class="welcome"> <h3> Welcome, {{session.username}}! </h3></div>
+			<a href="{{ url_for('outletlist') }}"> Outlet List</a>
+
+            <a href="{{ url_for('userhomepage') }}"> About InstaFood </a>
+            <a href="{{ url_for('cart') }}">Cart</a>
+            <a href="{{ url_for('search') }}">Search</a>
+            <a href="{{ url_for('orderhistory') }}">Order History</a>
+            <a href="{{ url_for('logout') }}">Sign Out</a>
+        </div>
+    </nav>
+	
+    <div class="center" align="center">
+
+        <div class="title">
+            ”Food Ordering web app” is the replacement of the manual food ordering process. Instead of having to go to restaurants to order food, users can order food online from the
+            comfort of their homes. Restaurants can also register themselves to reach out to a wide
+            range of customers to expand their business. The main goal of this project is to create a
+            food ordering web app that is easy to use and performs the required functions mentioned
+            above.
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>

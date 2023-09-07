@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+        * {
+            margin: 0%;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-image: url('static/bg.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-color: rgb(53, 15, 87);
+        }
+
+        .div1 {
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            margin: 0%;
+            background-color: whitesmoke;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        h2 a {
+            background-color: whitesmoke;
+            color: black;
+            border-radius: 8px;
+            padding: 8px;
+            text-decoration: none;
+        }
+
+        h2 a:hover {
+            background-color: rgb(53, 15, 87);
+            color: whitesmoke;
+        }
+
+        footer {
+            width: 100%;
+            background-color: white;
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+        }
+        .intro{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 15%;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            background-color: rgb(255, 255, 255, 0.5);
+            border-radius: 8px;
+            padding: 10px;
+        }
+    </style>
+    
+    <meta charset="UTF-8">
+    <title> Main </title>
+</head>
+
+<body>
+    <div id="custom-component">
+        <div class="div1">
+        <h2>
+            <a href="{{ url_for('userlogin') }}"> User Login</a><br>
+            <a href="{{ url_for('userregister') }}"> User Registration</a><br>
+            <a href="{{ url_for('managerlogin') }}"> Manager Login</a><br>
+            <a href="{{ url_for('managerregister') }}"> Manager Registration</a><br>
+            <a href="{{ url_for('adminlogin') }}"> Admin Login</a><br>
+        </h2>
+       </div>
+    </div>
+ 
+    <div class="intro">
+        <h1>QuickSports</h1>
+        <p>
+            
+        </p>
+    </div>
+    <footer>
+        <p>
+        <h3>A Sports Equipment Delivery App</h3>
+        </p>
+        <p>
+           
+        </p>
+    </footer>
+
+</body>
+
+</html>

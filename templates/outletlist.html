@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="script.js" ></script>
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <custom-component></custom-component>
+    <div class="container">
+        
+        {% if detail !="No records found"%}
+        
+        <h4 align="center" class="msg">
+            <strong> {{msg}} </strong>
+        </h4>
+
+        {% if detail %}
+        
+
+        <div class="table-container">
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Outlet Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for u in detail %}
+                    <tr>
+                        <td> {{u['resname']}} </td>
+                        <td>
+                        <button class="action">
+                            <a 
+                                href="{{url_for('outlet',id=u['username'])}}" 
+                                class="btn btn-success">
+                                Show outlet
+                            </a>
+                        </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- <div class="outlet_list">
+                <header class="outlet_heading">OUTLET LIST</header>
+                <div class="outlet_list_rows">
+                    {% for u in detail %}
+                    <div class="outlet_list_row">
+                        <span>{{u['resname']}} </span>
+                        
+                        <button class="action">
+                            <a 
+                                href="{{url_for('outlet',id=u['username'])}}" 
+                                class="btn btn-success">
+                                Show outlet
+                            </a>
+                        </button>
+                        
+                    </div>
+                    {% endfor %} 
+                </div>
+            </div> -->
+        </div>
+        {%endif%}
+
+        <div>
+            {%else%}
+           
+
+            <h4 align="center" class="msg">
+                <strong> {{detail}} </strong>
+            </h4>
+            {%endif%}
+        </div>
+
+    </div>
+</body>
+
+</html>
